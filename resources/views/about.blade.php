@@ -15,7 +15,7 @@
                                 <h3>{{$blog['title']}}</h3>
                                 <p>{{$blog['discription']}}</p>
                                 <hr/>
-                                <a href="" class="btn btn-success">Details</a>
+                                <a href="{{route('detail', ['id' =>$blog['id']])}}" class="btn btn-success"> Details</a>
                             </div>
                         </div>
                     </div>

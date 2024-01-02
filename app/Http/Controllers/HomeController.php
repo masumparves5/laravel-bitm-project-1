@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use function Termwind\ValueObjects\pr;
 
 class HomeController extends Controller
 {
-    public $blogs;
+    public $blogs, $blog;
 
     public function index()
     {
@@ -21,6 +22,16 @@ class HomeController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+    public function detail($id)
+    {
+        $this->blog = Blog::getBlogById($id);
+        return view('detail', ['blog' =>$this->blog]);
+    }
+
+    public function makeFullName(Request $request)
+    {
+        return $request;
     }
 }
 
