@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <div class="card card-body border-0 bg-transparent shadow">
-                        <form action="{{route('make-full-name')}}" method="post">
+                        <form action="{{route('makeSeries')}}" method="post">
                             @csrf
                             <div class="row mb-3">
                                 <label class="col-md-3">First Name</label>
@@ -21,6 +21,13 @@
                                 <label class="col-md-3">Last Name</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" name="last_name" value="{{session('lastName')}}">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-md-3">Your Choice</label>
+                                <div class="col-md-9">
+                                    <label><input type="radio" value="Odd" name="choice">Odd</label>
+                                    <label><input type="radio" value="even" name="choice">Even</label>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -43,4 +50,5 @@
     </section>
 
 @endsection
+
 

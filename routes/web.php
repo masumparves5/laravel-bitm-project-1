@@ -16,5 +16,7 @@ use App\Http\Controllers\HomeController;
 Route::get("/", [HomeController::class,'index'])->name('home');
 Route::get("/about", [HomeController::class,'about'])->name('about');
 Route::get("/contact", [HomeController::class,'contact'])->name('contact');
+Route::get("/series", [HomeController::class,'series'])->name('series');
 Route::get("/detail/{id}", [HomeController::class,'detail'])->name('detail');
 Route::post("/make-full-name", [HomeController::class,'makeFullName'])->name('make-full-name');
+Route::post("/makeSeries", [HomeController::class,'makeSeries'])->name('makeSeries');

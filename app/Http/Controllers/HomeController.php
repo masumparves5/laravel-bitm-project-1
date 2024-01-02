@@ -8,7 +8,7 @@ use function Termwind\ValueObjects\pr;
 
 class HomeController extends Controller
 {
-    public $blogs, $blog;
+    public $blogs, $blog, $fullName, $i,$result, $lastNumber, $firstNumber;
 
     public function index()
     {
@@ -23,6 +23,10 @@ class HomeController extends Controller
     {
         return view('contact');
     }
+    public function series()
+    {
+        return view('series');
+    }
     public function detail($id)
     {
         $this->blog = Blog::getBlogById($id);
@@ -31,7 +35,24 @@ class HomeController extends Controller
 
     public function makeFullName(Request $request)
     {
-        return $request;
+        $this->fullName = $request->first_name. " ". $request->last_name;
+        $this->firstName = $request->first_name;
+        $this->lastName = $request->last_name;
+        return redirect('/contact')->with([
+            'message' => $this->fullName,
+            'firstName' => $this->firstName,
+            'lastName' => $this->lastName
+            ]);
+
     }
+
+    public function makeSeries(Request $request)
+    {
+        for ($this->i = $request->first_name; $this->i <= $request->last_name; $this->i++){
+            $this->result .= $this->i. " ";
+        }
+        return redirect('/series')->with('message', $this->result);
+    }
+
 }
 
